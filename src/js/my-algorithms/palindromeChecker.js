@@ -5,17 +5,17 @@
 const Deque = require('../my-data-structures/deque');
 
 function palindromeChecker(asString) {
-    if (!asString) {
-        return false;
+  if (!asString) {
+    return false;
+  }
+  const deque = new Deque();
+  asString.split('').forEach(deque.addBack, deque);
+  while (deque.size() > 1) {
+    if (deque.removeFront() !== deque.removeBack()) {
+      return false;
     }
-    let deque = new Deque();
-    asString.split('').forEach(deque.addBack, deque);
-    while (deque.size() > 1) {
-        if (deque.removeFront() !== deque.removeBack()) {
-            return false;
-        }
-    }
-    return true;
+  }
+  return true;
 }
 
 console.log(palindromeChecker('madam'));
