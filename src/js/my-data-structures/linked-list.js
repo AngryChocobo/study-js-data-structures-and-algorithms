@@ -59,7 +59,7 @@ class LinkedList {
       for (let i = 0; i < index && current !== undefined; i++) {
         current = current.next;
       }
-      return current.element;
+      return current;
     }
     return undefined;
   }
@@ -115,11 +115,13 @@ class LinkedList {
 // 忽视的问题
 // 1. 在循环时应该判断current是否不存在，可以直接写入退出条件
 
-const linkedList = new LinkedList();
+// const linkedList = new LinkedList();
 
-linkedList.push(1);
-linkedList.push(2);
-linkedList.push(3);
-console.log(linkedList.getNodeAt(1));
-linkedList.removeAt(0);
-linkedList.insert(4, 0);
+// linkedList.push(1);
+// linkedList.push(2);
+// linkedList.push(3);
+// console.log(linkedList.getNodeAt(1));
+// linkedList.removeAt(0);
+// linkedList.insert(4, 0);
+
+module.exports = LinkedList;
