@@ -30,7 +30,8 @@ hotPotato(['永强', '赵四', '刘能', '玉田', '长贵'], 8);
 // 犯的错误：
 // 1. 比较该不该淘汰玩家时，写错了逻辑：if (count % num === num) 这里永远不会为真，导致死循环
 // 2. 理解问题，传入的num究竟是传递到次数被淘汰还是下一个被淘汰，如： 传7，是传到第7次被淘汰还是第8次被淘汰，我的算法是前者，书上是后者
-// 3. forEach的this绑定问题 如： playerList.forEach(queue.enqueue);  这样Queue类是无法正常工作的，forEach的回调函数的this如果不显示指定，就为全局对象
+// 3. forEach的this绑定问题 如： playerList.forEach(queue.enqueue);  这样Queue类是无法正常工作的，
+//    forEach的回调函数的this如果不显示指定，就为全局对象
 
 // 改进后的算法：
 
@@ -38,7 +39,7 @@ function hotPotatoPlus(playerList, num) {
   const queue = new Queue();
   // 创建玩家队列
   playerList.forEach(queue.enqueue, queue);
-  let eliminatedPlayerList = [];
+  const eliminatedPlayerList = [];
   // 开始游戏
   while (queue.size() > 1) {
     for (let i = 0; i < num; i++) {
@@ -52,5 +53,3 @@ function hotPotatoPlus(playerList, num) {
 }
 
 hotPotatoPlus(['永强', '赵四', '刘能', '玉田', '长贵'], 7);
-
-
