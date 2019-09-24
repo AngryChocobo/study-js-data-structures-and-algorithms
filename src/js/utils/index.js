@@ -1,3 +1,9 @@
+const Compare = {
+    LESS_THAN: -1,
+    BIGGER_THAN: 1,
+    EQUALS: 0
+};
+
 module.exports.defaultEquals = (a, b) => a === b;
 
 module.exports.defaultToString = (item) => {
@@ -13,4 +19,11 @@ module.exports.defaultToString = (item) => {
     return item.toString();
 }
 
-// module.exports.
+module.exports.Compare = Compare;
+
+module.exports.defaultCompare = (a, b) => {
+    if (a === b) {
+        return Compare.EQUALS;
+    }
+    return a < b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}

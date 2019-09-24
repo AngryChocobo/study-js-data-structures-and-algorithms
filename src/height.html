@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .block {
+            height: 100px;
+            background: #3ff;
+        }
+
+        .block-border {
+            height: 100px;
+            background: #3ff;
+            border: 8px solid black;
+        }
+
+        .block-padding {
+            height: 100px;
+            background: #3ff;
+            padding: 8px;
+        }
+
+        .block-margin {
+            height: 100px;
+            background: #3ff;
+            margin: 8px;
+        }
+
+        .inline {
+            background: #61f;
+        }
+
+        .scroll {
+            width: 200px;
+            height: 200px;
+            overflow: scroll;
+            background: yellow;
+            /* white-space: nowrap; */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="block">block元素</div>
+        <br />
+
+        <div class="block-border">有border的block元素</div>
+        <br />
+
+        <div class="block-padding">有padding的block元素</div>
+        <br />
+
+        <div class="block-margin">有margin的block元素</div>
+        <br />
+
+        <span class="inline">inline元素</span>
+        <br />
+        <br />
+
+
+        <div class="scroll">
+            loggedInUser:
+            {"id":1077235,"username":"陆行鸟","thumbId":"2B15FE9FF389C100410B5AD9DC3597F5.png","level":14,"modifyTime":1568108307257,"isBanned":false,"isVip":true,"vipExpireTime":1571026507313,"name":"赵四","goldCoins":3541,"createTime":"2018/11/2
+            10:00:37","newMessageCount":0,"enableProjectAutoSave":false,"magicStones":0,"isAdmin":false,"isTeacher":true,"commentsAllowed":true,"userAccount":null},
+            },
+            PROJECT_SERVER: "https://asset.mozhua.org:444",
+            ASSET_SERVER: "https://asset.mozhua.org:444",
+            CDN_SERVER: "https://cdn.mozhua.org",
+        </div>
+
+
+        <div class="htmledit_views" id="content_views">
+            <p><span style="color:#333333;"><span
+                        style="color:rgb(28,31,33);font-family:'PingFang SC', '微软雅黑', 'Microsoft YaHei', Helvetica, 'Helvetica Neue', Tahoma, Arial, sans-serif;background-color:rgb(255,255,255);"><span
+                            style="font-size:16px;"><br></span></span></span></p>
+            <p><span
+                    style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);">网页可见区域高：document.body.clientHeight</span>
+            </p><span
+                style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);">网页正文全文高：document.body.scrollHeight</span><br
+                style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);"><span
+                style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);">网页可见区域高（包括边线的高）：document.body.offsetHeight</span><br
+                style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);"><span
+                style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);">网页被卷去的高：document.body.scrollTop</span><br
+                style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);">
+            <p><span
+                    style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);">屏幕分辨率高：window.screen.height</span>
+            </p>
+            <p><span style="color:rgb(51,51,51);font-size:18px;"></span></p>
+            <p
+                style="margin-bottom:0px;color:rgb(28,31,33);font-family:'PingFang SC', '微软雅黑', 'Microsoft YaHei', Helvetica, 'Helvetica Neue', Tahoma, Arial, sans-serif;font-size:14px;">
+                <span style="background-color:rgb(255,255,255);">每个HTML元素都具有clientHeight offsetHeight scrollHeight
+                    offsetTop
+                    scrollTop
+                    这5个和元素高度、滚动、位置相关的属性，单凭单词很难搞清楚分别代表什么意思之间有什么区别。通过阅读它们的文档总结出规律如下：<br>clientHeight和offsetHeight属性和元素的滚动、位置没有关系它代表元素的高度，其中：<br>clientHeight：包括padding但不包括border、水平滚动条、margin的元素的高度。对于inline的元素这个属性一直是0，单位px，只读元素。<br><span><img
+                            title="搞清clientHeight、offsetHeight、scrollHeight、offsetTop、scrollTop_"
+                            src="https://img.mukewang.com/58f5b2fa00012ea604110247.jpg" alt="图片描述"
+                            style="border:0px;"></span><br>offsetHeight：包括padding、border、水平滚动条，但不包括margin的元素的高度。对于inline的元素这个属性一直是0，单位px，只读元素。<br><span><img
+                            title="搞清clientHeight、offsetHeight、scrollHeight、offsetTop、scrollTop_"
+                            src="https://img.mukewang.com/58f5b32e0001a2fa04110247.jpg" alt="图片描述"
+                            style="border:0px;"></span><br>接下来讨论出现有滚动条时的情况：<br>当本元素的子元素比本元素高且overflow=scroll时，本元素会scroll，这时：<br>scrollHeight:
+                    因为子元素比父元素高，父元素不想被子元素撑的一样高就显示出了滚动条，在滚动的过程中本元素有部分被隐藏了，scrollHeight代表包括当前不可见部分的元素的高度。而可见部分的高度其实就是clientHeight，也就是scrollHeight&gt;=clientHeight恒成立。在有滚动条时讨论scrollHeight才有意义，在没有滚动条时scrollHeight==clientHeight恒成立。单位px，只读元素。<br><span><img
+                            title="搞清clientHeight、offsetHeight、scrollHeight、offsetTop、scrollTop_"
+                            src="https://img.mukewang.com/58f5b3700001627d05110413.jpg" alt="图片描述"
+                            style="border:0px;"></span><br>scrollTop:
+                    代表在有滚动条时，滚动条向下滚动的距离也就是元素顶部被遮住部分的高度。在没有滚动条时scrollTop==0恒成立。单位px，可读可设置。<br>offsetTop:
+                    当前元素顶部距离最近父元素顶部的距离,和有没有滚动条没有关系。单位px，只读元素。<br><span><img
+                            title="搞清clientHeight、offsetHeight、scrollHeight、offsetTop、scrollTop_"
+                            src="https://img.mukewang.com/58f5b3e80001873105110413.jpg" alt="图片描述"
+                            style="border:0px;"></span></span></p>
+            <p
+                style="margin-bottom:0px;color:rgb(28,31,33);font-family:'PingFang SC', '微软雅黑', 'Microsoft YaHei', Helvetica, 'Helvetica Neue', Tahoma, Arial, sans-serif;font-size:14px;">
+                <span style="background-color:rgb(255,255,255);">offsetTop:
+                    当前元素顶部距离最近父元素顶部的距离,和有没有滚动条没有关系。单位px，只读元素。<br><img
+                        title="搞清clientHeight、offsetHeight、scrollHeight、offsetTop、scrollTop_"
+                        src="https://img.mukewang.com/58f5b4050001e99204480302.jpg" alt="图片描述"
+                        style="border:0px;"></span></p>
+            <br>
+        </div>
+    </div>
+    <script>
+        function displayMsg() {
+            const documentElement = document.documentElement;
+            console.log(`documentElement clientHeight: ${documentElement.clientHeight}`);
+            console.log(`documentElement scrollHeight: ${documentElement.scrollHeight}`);
+            console.log(`documentElement offsetHeight: ${documentElement.offsetHeight}`);
+            console.log(`------------------------`);
+
+            const body = document.querySelector("body");
+            console.log(`body clientHeight: ${body.clientHeight}`);
+            console.log(`body scrollHeight: ${body.scrollHeight}`);
+            console.log(`body offsetHeight: ${body.offsetHeight}`);
+            console.log(`------------------------`);
+
+            const blockDom = document.querySelector(".block");
+            console.log(`blockDom clientHeight: ${blockDom.clientHeight}`);
+            console.log(`blockDom scrollHeight: ${blockDom.scrollHeight}`);
+            console.log(`blockDom offsetHeight: ${blockDom.offsetHeight}`);
+            console.log(`------------------------`);
+
+            const blockPaddingDom = document.querySelector(".block-padding");
+            console.log(`blockPaddingDom clientHeight: ${blockPaddingDom.clientHeight}`);
+            console.log(`blockPaddingDom scrollHeight: ${blockPaddingDom.scrollHeight}`);
+            console.log(`blockPaddingDom offsetHeight: ${blockPaddingDom.offsetHeight}`);
+            console.log(`------------------------`);
+
+            const blockBorderDom = document.querySelector(".block-border");
+            console.log(`blockBorderDom clientHeight: ${blockBorderDom.clientHeight}`);
+            console.log(`blockBorderDom scrollHeight: ${blockBorderDom.scrollHeight}`);
+            console.log(`blockBorderDom offsetHeight: ${blockBorderDom.offsetHeight}`);
+            console.log(`------------------------`);
+
+            const blockMarginDom = document.querySelector(".block-margin");
+            console.log(`blockMarginDom clientHeight: ${blockMarginDom.clientHeight}`);
+            console.log(`blockMarginDom scrollHeight: ${blockMarginDom.scrollHeight}`);
+            console.log(`blockMarginDom offsetHeight: ${blockMarginDom.offsetHeight}`);
+            console.log(`------------------------`);
+
+
+            const inlineDom = document.querySelector(".inline");
+            console.log(`inlineDom clientHeight: ${inlineDom.clientHeight}`);
+            console.log(`inlineDom scrollHeight: ${inlineDom.scrollHeight}`);
+            console.log(`inlineDom offsetHeight: ${inlineDom.offsetHeight}`);
+            console.log(`------------------------`);
+
+            const scrollDom = document.querySelector(".scroll");
+            console.log(`scrollDom clientHeight: ${scrollDom.clientHeight}`);
+            console.log(`scrollDom scrollHeight: ${scrollDom.scrollHeight}`);
+            console.log(`scrollDom offsetHeight: ${scrollDom.offsetHeight}`);
+            console.log(`------------------------`);
+
+            console.log(`window.innerHeight: ${window.innerHeight}`);
+            console.log(`------------------------`);
+        }
+
+        window.onload = displayMsg;
+
+    </script>
+</body>
+
+</html>
